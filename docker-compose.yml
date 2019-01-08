@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  notebook-server:
+    build:
+      context: .
+      args:
+        DS_DIR: ds_stack
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/ds_stack
+    tty: true
+    stdin_open: true
