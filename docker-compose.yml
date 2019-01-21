@@ -1,4 +1,4 @@
-version: "3"
+version: "3.1"
 
 services:
   notebook-server:
@@ -12,3 +12,11 @@ services:
       - .:/ds_stack
     tty: true
     stdin_open: true
+    environment:
+      REDSHIFT_PASSWORD_FILE: /run/secrets/redshift_password
+    secrets:
+      - redshift_password
+
+secrets:
+  redshift_password:
+    file: ~/.credentials/redshift_goodrx
